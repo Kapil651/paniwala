@@ -1,0 +1,53 @@
+<div class="container mt-4">
+  <div class="card shadow p-4">
+    <h2 class="text-center mb-4">
+      <%= @booking.new_record? ? "New Booking" : "Edit Booking" %>
+    </h2>
+
+    <%= form_with model: @booking, local: true, html: { class: "needs-validation" } do |form| %>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :given, "Given", class: "form-label fw-bold" %>
+            <%= form.number_field :given, class: "form-control", placeholder: "Enter amount", step: "0.01", required: true %>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :receive, "Received", class: "form-label fw-bold" %>
+            <%= form.number_field :receive, class: "form-control", placeholder: "Enter amount", step: "0.01", required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :customer_id, "Select Customer", class: "form-label fw-bold" %>
+            <% if @customers.present? %>
+              <%= form.collection_select :customer_id, @customers, :id, :name_with_email, { prompt: "Choose a Customer" }, { class: "form-select", required: true } %>
+            <% else %>
+              <p class="text-danger">No customers available</p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :inventory_id, "Select Inventory", class: "form-label fw-bold" %>
+            <% if @inventories.present? %>
+              <%= form.collection_select :inventory_id, @inventories, :id, :name, { prompt: "Choose an Inventory" }, { class: "form-select", required: true } %>
+            <% else %>
+              <p class="text-danger">No inventories available</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <%= form.submit @booking.new_record? ? "Create Booking" : "Update Booking", class: "btn btn-primary px-4" %>
+      </div>
+    <% end %>
+  </div>
+</div>

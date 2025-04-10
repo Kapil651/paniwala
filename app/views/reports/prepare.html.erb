@@ -1,0 +1,27 @@
+<div class="card shadow-lg border-0 rounded-4 p-4 mb-4 bg-white">
+  <h3 class="fw-bold text-primary mb-3 text-center">📅 Booking Report</h3>
+
+  <div class="d-flex justify-content-center mb-3">
+    <%= link_to "📜 Last 30 Days Bookings", reports_last_days_path, class: "btn btn-success px-4 py-2 fw-bold shadow-sm" %>
+  </div>
+
+  <div class="bg-light p-4 rounded-3">
+    <%= form_with url: reports_fetch_path, method: :get, local: true, class: "needs-validation" do |form| %>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <%= form.label :start_date, "📆 Start Date", class: "form-label fw-bold text-secondary" %>
+          <%= form.date_field :start_date, value: params[:start_date], class: "form-control border-primary shadow-sm", required: true %>
+        </div>
+
+        <div class="col-md-6">
+          <%= form.label :end_date, "📆 End Date", class: "form-label fw-bold text-secondary" %>
+          <%= form.date_field :end_date, value: params[:end_date], class: "form-control border-primary shadow-sm", required: true %>
+        </div>
+      </div>
+
+      <div class="mt-4 d-grid">
+        <%= form.submit "🔍 Filter Bookings", class: "btn btn-primary fw-bold py-2 shadow" %>
+      </div>
+    <% end %>
+  </div>
+</div>

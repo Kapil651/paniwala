@@ -1,0 +1,36 @@
+<%= form_with model: customer, local: true, class: "card shadow p-4" do |form| %>
+  <h3 class="fw-bold text-primary mb-3"><%= customer.new_record? ? "Add New Customer" : "Edit Customer" %></h3>
+
+  <div class="mb-3">
+    <%= form.label :name, "Full Name", class: "form-label fw-bold" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter full name", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone, "Phone Number", class: "form-label fw-bold" %>
+    <%= form.number_field :phone, class: "form-control", placeholder: "Enter phone number", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, "Email Address", class: "form-label fw-bold" %>
+    <%= form.email_field :email, class: "form-control", placeholder: "Enter email address" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :address, "Address", class: "form-label fw-bold" %>
+    <%= form.text_field :address, class: "form-control", placeholder: "Enter address" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :area_id, "Select Area", class: "form-label fw-bold" %>
+    <% if areas.present? %>
+      <%= form.collection_select :area_id, areas, :id, :name, { prompt: "Choose an Area" }, class: "form-select" %>
+    <% else %>
+      <p class="text-danger">No areas available</p>
+    <% end %>
+  </div>
+
+  <div class="text-end">
+    <%= form.submit customer.new_record? ? "Create Customer" : "Update Customer", class: "btn btn-primary px-4" %>
+  </div>
+<% end %>

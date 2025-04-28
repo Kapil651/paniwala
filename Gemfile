@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "devise"
-gem 'bootstrap', '~> 5.3.3'
+gem 'bootstrap', '~> 5.3.5'
 gem 'carrierwave', '~> 2.2'
 gem 'kaminari'
 gem 'omniauth'

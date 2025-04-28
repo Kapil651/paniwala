@@ -11,7 +11,7 @@ gem 'omniauth-twitter'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-github' 
 gem "omniauth-linkedin-oauth2"
-gem 'dotenv-rails'
+gem 'dotenv-rails' , groups: [:development, :test]
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

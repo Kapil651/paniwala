@@ -1,9 +1,16 @@
 source "https://rubygems.org"
 
-gem "devise" 
+gem "devise"
 gem 'bootstrap', '~> 5.3.3'
 gem 'carrierwave', '~> 2.2'
 gem 'kaminari'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'ransack'
+gem 'omniauth-twitter'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-github' 
+gem "omniauth-linkedin-oauth2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"

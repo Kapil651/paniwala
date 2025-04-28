@@ -5,9 +5,9 @@ class BookingsController < ApplicationController
 
  
   def index
-    @bookings = Booking.page(params[:page]).per(3)
+    @q = Booking.ransack(params[:q])  # Initialize ransack
+    @bookings = @q.result(distinct: true).page(params[:page]).per(10)  # Paginate results
   end
-
 
   def show
     @booking = Booking.find(params[:id])

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get "reports/last_days"
   get "bookings/index"
   get "bookings/new"
-  devise_for :suppliers 
+  devise_for :suppliers, controllers: { omniauth_callbacks: 'suppliers/omniauth_callbacks' }
+ 
+  get '/suppliers/auth/github/callback', to: 'suppliers/omniauth_callbacks#github'
+  get '/suppliers/auth/google_oauth2/callback', to: 'suppliers/omniauth_callbacks#google_oauth2'
   resources :suppliers 
   resources :inventories
   resources :customers

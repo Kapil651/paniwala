@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "devise"
 gem 'bootstrap', '~> 5.3.3'
-gem 'carrierwave', '~> 2.2'
+gem 'carrierwave', '~> 3.1'
 gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
